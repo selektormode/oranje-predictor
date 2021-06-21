@@ -151,6 +151,7 @@ def find_opponent(standings,odds):
 
     return a.reset_index().TEAMS[0]
 
+#read input data
 standings = pd.read_csv("Standings.csv")
 odds  = pd.read_csv("Odds.csv")
 calculate_prob_from_odds()
@@ -163,8 +164,10 @@ standings["h2h_points"] = np.zeros(24) #points column, used later to sort for h2
 
 games_played = pd.read_csv('game_results.csv')
 
-# opponents = []
-opponents = pickle.load( open( "opponents.p", "rb" ) )
+opponents = []
+# opponents = pickle.load( open( "opponents.p", "rb" ) ) # This can be used to include previous results to improve statistics
+
+# do the simulations multiple times and remember the results
 for i in range(n_o_simluations):
     fill_h2h()
     opponents.append(find_opponent(standings.copy(),odds))
