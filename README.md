@@ -16,7 +16,7 @@ Input files:
  * game_results.csv:
   results of the previous matches. 
   
-Dependencies: 
+Used packages: 
  * Pandas
  * Numpy 
  * Matplotlib
